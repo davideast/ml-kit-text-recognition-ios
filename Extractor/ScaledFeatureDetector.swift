@@ -36,11 +36,11 @@ class ScaledFeatureDetector {
         return
       }
       let result = self.processDetectedFeatures(features: features, image: image, view: imageView)
-      callback(result.0, result.1)
+      callback(result.text, result.features)
     }
   }
   
-  private func processDetectedFeatures(features: [VisionText], image: UIImage, view: UIView) -> (String, [DetectedFeature]) {
+  private func processDetectedFeatures(features: [VisionText], image: UIImage, view: UIView) -> (text: String, features: [DetectedFeature]) {
     var scaledFeatures: [DetectedFeature] = []
     var scannedText = ""
     for feature in features {
@@ -59,7 +59,7 @@ class ScaledFeatureDetector {
         }
       }
     }
-    return (scannedText, scaledFeatures)
+    return (text: scannedText, features: scaledFeatures)
   }
   
   private func createScaledFrame(featureFrame: CGRect, imageSize: CGSize, viewFrame: CGRect) -> CGRect {
@@ -98,20 +98,20 @@ class ScaledFeatureDetector {
                   height: featureHeightScaled)
   }
   
-  private func createLayers(frame: CGRect, text: String? = nil, fontSize: CGFloat) -> (CAShapeLayer, CATextLayer) {
+  private func createLayers(frame: CGRect, text: String? = nil, fontSize: CGFloat) -> (shape: CAShapeLayer, text: CATextLayer) {
     let shapeLayer = createShapeLayer(frame: frame)
     let textLayer = createTextLayer(frame: frame, text: text, fontSize: fontSize)
-    return (shapeLayer, textLayer);
+    return (shape: shapeLayer, text: textLayer);
   }
   
   private func createShapeLayer(frame: CGRect) -> CAShapeLayer {
     let bpath: UIBezierPath = UIBezierPath(rect: frame)
-    let rectLayer = CAShapeLayer()
-    rectLayer.path = bpath.cgPath
-    rectLayer.strokeColor = Constants.lineColor
-    rectLayer.fillColor = Constants.fillColor
-    rectLayer.lineWidth = Constants.lineWidth
-    return rectLayer
+    let shapeLayer = CAShapeLayer()
+    shapeLayer.path = bpath.cgPath
+    shapeLayer.strokeColor = Constants.lineColor
+    shapeLayer.fillColor = Constants.fillColor
+    shapeLayer.lineWidth = Constants.lineWidth
+    return shapeLayer
   }
 
   private func createTextLayer(frame: CGRect, text: String?, fontSize: CGFloat) -> CATextLayer {
@@ -132,7 +132,7 @@ class ScaledFeatureDetector {
   private func createDetectedFeature(frame: CGRect, text: String, image: UIImage, view: UIView, fontSize: CGFloat = 12.0) -> DetectedFeature {
     let frame = self.createScaledFrame(featureFrame: frame, imageSize: image.size, viewFrame: view.frame)
     let layers = self.createLayers(frame: frame, text: text, fontSize: fontSize)
-    return DetectedFeature(frame: frame, text: text, shapeLayer: layers.0, textLayer: layers.1)
+    return DetectedFeature(frame: frame, text: text, shapeLayer: layers.shape, textLayer: layers.text)
   }
   
   private func createQuestionLayer(frame: CGRect, image: UIImage, view: UIView) -> DetectedFeature {

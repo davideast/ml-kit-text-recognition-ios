@@ -32,23 +32,19 @@ class ViewController: UIViewController {
   
   // MARK: Drawing
   
-  private func drawFeatures(in imageView: UIImageView, completion: @escaping () -> Void) {
+  private func drawFeatures(in imageView: UIImageView, completion: (() -> Void)? = nil) {
     removeFeatures()
     featureDetector.detect(in: imageView) { text, features in
       features.forEach(self.addLayers)
       self.scannedText = text
-      completion()
+      completion?()
     }
   }
   
   private func removeFeatures() {
     guard let sublayers = frameSublayer.sublayers else { return }
     for sublayer in sublayers {
-      guard let frameLayer = sublayer as CALayer? else {
-        print("Failed to remove frame layer.")
-        continue
-      }
-      frameLayer.removeFromSuperlayer()
+      sublayer.removeFromSuperlayer()
     }
   }
   
@@ -91,7 +87,7 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
     if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
       imageView.contentMode = .scaleAspectFit
       imageView.image = pickedImage
-      drawFeatures(in: imageView) { }
+      drawFeatures(in: imageView)
     }
     dismiss(animated: true, completion: nil)
   }
