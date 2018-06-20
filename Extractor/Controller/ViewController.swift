@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView!
   
-  lazy var featureDetector = ScaledFeatureDetector()
+  var featureDetector = ScaledFeatureDetector()
   var frameSublayer = CALayer()
   var scannedText = ""
   
