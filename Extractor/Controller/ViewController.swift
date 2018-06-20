@@ -8,13 +8,11 @@
 
 import UIKit
 import MobileCoreServices
-import Firebase
 
 class ViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView!
   
-  var featureDetector = ScaledFeatureDetector()
   var frameSublayer = CALayer()
   var scannedText = ""
   
@@ -22,39 +20,6 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     imageView.layer.addSublayer(frameSublayer)
-    
-    drawFeatures(in: imageView) {
-      UIView.animate(withDuration: 0.8) {
-        self.imageView.alpha = 1
-      }
-    }
-  }
-  
-  // MARK: Drawing
-  
-  private func drawFeatures(in imageView: UIImageView, completion: @escaping () -> Void) {
-    removeFeatures()
-    featureDetector.detect(in: imageView) { text, features in
-      features.forEach(self.addLayers)
-      self.scannedText = text
-      completion()
-    }
-  }
-  
-  private func removeFeatures() {
-    guard let sublayers = frameSublayer.sublayers else { return }
-    for sublayer in sublayers {
-      guard let frameLayer = sublayer as CALayer? else {
-        print("Failed to remove frame layer.")
-        continue
-      }
-      frameLayer.removeFromSuperlayer()
-    }
-  }
-  
-  private func addLayers(from feature: DetectedFeature) {
-    frameSublayer.addSublayer(feature.shapeLayer)
-    frameSublayer.addSublayer(feature.textLayer)
   }
   
   // MARK: Actions
@@ -91,7 +56,6 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
     if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
       imageView.contentMode = .scaleAspectFit
       imageView.image = pickedImage
-      drawFeatures(in: imageView) { }
     }
     dismiss(animated: true, completion: nil)
   }
