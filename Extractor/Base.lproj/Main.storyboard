@@ -22,9 +22,9 @@
                                 <color key="backgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanned-text" translatesAutoresizingMaskIntoConstraints="NO" id="c1s-Wc-FaS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="469"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="487" id="yZ7-X0-t6L"/>
+                                    <constraint firstAttribute="height" constant="469" id="yZ7-X0-t6L"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-EW-UbM">
@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vq-2o-e4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703.2" y="76.911544227886068"/>
+            <point key="canvasLocation" x="1700" y="74.212893553223395"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ayA-Is-rrW">

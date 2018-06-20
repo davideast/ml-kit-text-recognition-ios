@@ -123,7 +123,7 @@ class ScaledFeatureDetector {
       let center = CGPoint(x: frame.midX, y: frame.midY)
       textLayer.position = center
       textLayer.frame = frame
-      textLayer.alignmentMode = kCAAlignmentCenter
+      textLayer.alignmentMode = kCAAlignmentJustified
       textLayer.contentsScale = UIScreen.main.scale
     }
     return textLayer
