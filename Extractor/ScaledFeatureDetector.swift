@@ -139,6 +139,7 @@ class ScaledFeatureDetector {
     return createDetectedFeature(frame: frame, text: "?", image: image, view: view, fontSize: 34.0)
   }
   
+  
   // MARK: - Fileprivate
   
   fileprivate enum Constants {

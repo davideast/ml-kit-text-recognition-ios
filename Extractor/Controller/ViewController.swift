@@ -14,12 +14,13 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView!
   
-  var featureDetector = ScaledFeatureDetector()
+  var featureDetector: ScaledFeatureDetector!
   var frameSublayer = CALayer()
   var scannedText = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    featureDetector = ScaledFeatureDetector()
     
     imageView.layer.addSublayer(frameSublayer)
     
@@ -86,7 +87,8 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
       imageView.contentMode = .scaleAspectFit
-      imageView.image = pickedImage
+      let fixedImage = pickedImage.fixOrientation()
+      imageView.image = fixedImage
       drawFeatures(in: imageView)
     }
     dismiss(animated: true, completion: nil)

@@ -14,6 +14,7 @@
 		BBF4E3A220D2D526009569F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF4E3A020D2D526009569F2 /* LaunchScreen.storyboard */; };
 		BBF4E3CC20D8352A009569F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBF4E3CB20D83529009569F2 /* GoogleService-Info.plist */; };
 		BBF4E3D020D93B3C009569F2 /* ScaledFeatureDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4E3CF20D93B3C009569F2 /* ScaledFeatureDetector.swift */; };
+		BBF4E3D420DAB1DE009569F2 /* +UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4E3D320DAB1DE009569F2 /* +UIImage.swift */; };
 		D5016F3665AC4DF6EEBA6CCE /* Pods_Extractor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68437A7C49DB4E7CF6AB9EF8 /* Pods_Extractor.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		BBF4E3A320D2D526009569F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBF4E3CB20D83529009569F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBF4E3CF20D93B3C009569F2 /* ScaledFeatureDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledFeatureDetector.swift; sourceTree = "<group>"; };
+		BBF4E3D320DAB1DE009569F2 /* +UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+UIImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				BBF4E3A020D2D526009569F2 /* LaunchScreen.storyboard */,
 				BBF4E3A320D2D526009569F2 /* Info.plist */,
 				BBF4E3CB20D83529009569F2 /* GoogleService-Info.plist */,
+				BBF4E3D320DAB1DE009569F2 /* +UIImage.swift */,
 			);
 			path = Extractor;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBF4E3D020D93B3C009569F2 /* ScaledFeatureDetector.swift in Sources */,
+				BBF4E3D420DAB1DE009569F2 /* +UIImage.swift in Sources */,
 				BBF4E39A20D2D524009569F2 /* ViewController.swift in Sources */,
 				BBF4E39820D2D524009569F2 /* AppDelegate.swift in Sources */,
 			);
