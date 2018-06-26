@@ -13,16 +13,27 @@ import Firebase
 class ViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var textView: UITextView!
+  @IBOutlet weak var cameraButton: UIButton!
   
   var featureDetector: ScaledFeatureDetector!
   var frameSublayer = CALayer()
-  var scannedText = ""
+  var scannedText: String = "Detected text can be edited here." {
+    didSet {
+      textView.text = scannedText
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     featureDetector = ScaledFeatureDetector()
     
     imageView.layer.addSublayer(frameSublayer)
+    
+    // Disable camera button if no camera exists
+    if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+      cameraButton.isHidden = true
+    }
     
     drawFeatures(in: imageView) {
       UIView.animate(withDuration: 0.8) {

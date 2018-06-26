@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,24 +19,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83r-q0-8wR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="469"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="369"/>
                                 <color key="backgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanned-text" translatesAutoresizingMaskIntoConstraints="NO" id="c1s-Wc-FaS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="469"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="369"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="469" id="yZ7-X0-t6L"/>
+                                    <constraint firstAttribute="height" constant="369" id="yZ7-X0-t6L"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-EW-UbM">
-                                <rect key="frame" x="71" y="587" width="87" height="32"/>
+                                <rect key="frame" x="71" y="601" width="87" height="32"/>
                                 <state key="normal" title="TAKE" image="menu-icon"/>
                                 <connections>
                                     <action selector="libraryDidTouch:" destination="Q3n-NK-yX4" eventType="touchUpInside" id="TGr-0Z-bTV"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Detected text can be edited here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mTy-kf-p3f">
+                                <rect key="frame" x="16" y="454" width="343" height="106"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wk-EN-4lX">
-                                <rect key="frame" x="245" y="580" width="101" height="46"/>
+                                <rect key="frame" x="246" y="594" width="101" height="46"/>
                                 <state key="normal" title="TAKE" image="camera-icon"/>
                                 <connections>
                                     <action selector="cameraDidTouch:" destination="Q3n-NK-yX4" eventType="touchUpInside" id="e4C-xm-mg9"/>
@@ -48,13 +55,17 @@
                             <constraint firstItem="c1s-Wc-FaS" firstAttribute="leading" secondItem="qdT-A9-aTL" secondAttribute="leading" id="85q-Wt-ne8"/>
                             <constraint firstItem="c1s-Wc-FaS" firstAttribute="trailing" secondItem="83r-q0-8wR" secondAttribute="trailing" id="Gd1-hY-4Qh"/>
                             <constraint firstItem="c1s-Wc-FaS" firstAttribute="top" secondItem="83r-q0-8wR" secondAttribute="top" id="J5g-iM-u5M"/>
+                            <constraint firstItem="4Wk-EN-4lX" firstAttribute="top" secondItem="mTy-kf-p3f" secondAttribute="bottom" constant="34" id="Q49-W7-k4o"/>
                             <constraint firstItem="4Wk-EN-4lX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Esc-EW-UbM" secondAttribute="trailing" constant="8" symbolic="YES" id="RtJ-Gs-ICg"/>
                             <constraint firstAttribute="trailing" secondItem="c1s-Wc-FaS" secondAttribute="trailing" id="UFC-UA-KvA"/>
                             <constraint firstItem="Esc-EW-UbM" firstAttribute="baseline" secondItem="4Wk-EN-4lX" secondAttribute="baseline" id="WLo-LW-4bJ"/>
-                            <constraint firstAttribute="trailing" secondItem="4Wk-EN-4lX" secondAttribute="trailing" constant="29" id="Wkb-cf-4SK"/>
-                            <constraint firstItem="4Wk-EN-4lX" firstAttribute="top" secondItem="83r-q0-8wR" secondAttribute="bottom" constant="47" id="bzx-Gi-xUd"/>
+                            <constraint firstAttribute="trailing" secondItem="4Wk-EN-4lX" secondAttribute="trailing" constant="28" id="Wkb-cf-4SK"/>
+                            <constraint firstItem="4Wk-EN-4lX" firstAttribute="top" secondItem="83r-q0-8wR" secondAttribute="bottom" constant="161" id="bzx-Gi-xUd"/>
+                            <constraint firstItem="mTy-kf-p3f" firstAttribute="top" secondItem="83r-q0-8wR" secondAttribute="bottom" constant="21" id="dfS-KL-pgp"/>
+                            <constraint firstItem="mTy-kf-p3f" firstAttribute="leading" secondItem="qdT-A9-aTL" secondAttribute="leadingMargin" id="gVV-Rf-3iw"/>
                             <constraint firstItem="c1s-Wc-FaS" firstAttribute="leading" secondItem="83r-q0-8wR" secondAttribute="leading" id="j4C-lG-phH"/>
-                            <constraint firstItem="IMq-TL-91W" firstAttribute="bottom" secondItem="4Wk-EN-4lX" secondAttribute="bottom" constant="41" id="spl-QU-ZBy"/>
+                            <constraint firstItem="mTy-kf-p3f" firstAttribute="centerX" secondItem="83r-q0-8wR" secondAttribute="centerX" id="ppe-t2-qq2"/>
+                            <constraint firstItem="IMq-TL-91W" firstAttribute="bottom" secondItem="4Wk-EN-4lX" secondAttribute="bottom" constant="27" id="spl-QU-ZBy"/>
                             <constraint firstItem="Esc-EW-UbM" firstAttribute="leading" secondItem="IMq-TL-91W" secondAttribute="leading" constant="71" id="wVm-jJ-JTS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IMq-TL-91W"/>
@@ -67,7 +78,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cameraButton" destination="4Wk-EN-4lX" id="fid-zI-ReZ"/>
                         <outlet property="imageView" destination="c1s-Wc-FaS" id="c32-fa-gYk"/>
+                        <outlet property="textView" destination="mTy-kf-p3f" id="nzR-mp-yGR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vq-2o-e4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
