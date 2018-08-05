@@ -1,79 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WKF-mi-Gvf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WKF-mi-Gvf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Extractor-->
-        <scene sceneID="5Uh-Bd-GAJ">
-            <objects>
-                <viewController id="Q3n-NK-yX4" customClass="ViewController" customModule="Extractor" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qdT-A9-aTL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83r-q0-8wR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="469"/>
-                                <color key="backgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanned-text" translatesAutoresizingMaskIntoConstraints="NO" id="c1s-Wc-FaS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="487"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="487" id="yZ7-X0-t6L"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-EW-UbM">
-                                <rect key="frame" x="71" y="587" width="87" height="32"/>
-                                <state key="normal" title="TAKE" image="menu-icon"/>
-                                <connections>
-                                    <action selector="libraryDidTouch:" destination="Q3n-NK-yX4" eventType="touchUpInside" id="TGr-0Z-bTV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wk-EN-4lX">
-                                <rect key="frame" x="245" y="580" width="101" height="46"/>
-                                <state key="normal" title="TAKE" image="camera-icon"/>
-                                <connections>
-                                    <action selector="cameraDidTouch:" destination="Q3n-NK-yX4" eventType="touchUpInside" id="e4C-xm-mg9"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="83r-q0-8wR" firstAttribute="top" secondItem="IMq-TL-91W" secondAttribute="top" id="5LA-9H-WEt"/>
-                            <constraint firstItem="c1s-Wc-FaS" firstAttribute="leading" secondItem="qdT-A9-aTL" secondAttribute="leading" id="85q-Wt-ne8"/>
-                            <constraint firstItem="c1s-Wc-FaS" firstAttribute="trailing" secondItem="83r-q0-8wR" secondAttribute="trailing" id="Gd1-hY-4Qh"/>
-                            <constraint firstItem="c1s-Wc-FaS" firstAttribute="top" secondItem="83r-q0-8wR" secondAttribute="top" id="J5g-iM-u5M"/>
-                            <constraint firstItem="4Wk-EN-4lX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Esc-EW-UbM" secondAttribute="trailing" constant="8" symbolic="YES" id="RtJ-Gs-ICg"/>
-                            <constraint firstAttribute="trailing" secondItem="c1s-Wc-FaS" secondAttribute="trailing" id="UFC-UA-KvA"/>
-                            <constraint firstItem="Esc-EW-UbM" firstAttribute="baseline" secondItem="4Wk-EN-4lX" secondAttribute="baseline" id="WLo-LW-4bJ"/>
-                            <constraint firstAttribute="trailing" secondItem="4Wk-EN-4lX" secondAttribute="trailing" constant="29" id="Wkb-cf-4SK"/>
-                            <constraint firstItem="4Wk-EN-4lX" firstAttribute="top" secondItem="83r-q0-8wR" secondAttribute="bottom" constant="47" id="bzx-Gi-xUd"/>
-                            <constraint firstItem="c1s-Wc-FaS" firstAttribute="leading" secondItem="83r-q0-8wR" secondAttribute="leading" id="j4C-lG-phH"/>
-                            <constraint firstItem="IMq-TL-91W" firstAttribute="bottom" secondItem="4Wk-EN-4lX" secondAttribute="bottom" constant="41" id="spl-QU-ZBy"/>
-                            <constraint firstItem="Esc-EW-UbM" firstAttribute="leading" secondItem="IMq-TL-91W" secondAttribute="leading" constant="71" id="wVm-jJ-JTS"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="IMq-TL-91W"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Extractor" id="kjN-mM-9cL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="WhG-xA-pfn">
-                            <connections>
-                                <action selector="shareDidTouch:" destination="Q3n-NK-yX4" id="TN5-bf-QeX"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="imageView" destination="c1s-Wc-FaS" id="c32-fa-gYk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2vq-2o-e4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1703.2" y="76.911544227886068"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ayA-Is-rrW">
             <objects>
@@ -85,12 +21,92 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Q3n-NK-yX4" kind="relationship" relationship="rootViewController" id="khH-8v-pwk"/>
+                        <segue destination="V7y-fw-VsS" kind="relationship" relationship="rootViewController" id="740-Le-tVO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9o-LR-jsg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="764" y="76.911544227886068"/>
+        </scene>
+        <!--Extractor-->
+        <scene sceneID="hbT-fX-pVH">
+            <objects>
+                <viewController id="V7y-fw-VsS" customClass="ViewController" customModule="Extractor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qWu-8x-xU8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugJ-9w-ndQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="369"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanned-text" translatesAutoresizingMaskIntoConstraints="NO" id="V6F-3t-CKd">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="369"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="V6F-3t-CKd" firstAttribute="leading" secondItem="ugJ-9w-ndQ" secondAttribute="leading" id="C4u-v3-clr"/>
+                                    <constraint firstItem="V6F-3t-CKd" firstAttribute="top" secondItem="ugJ-9w-ndQ" secondAttribute="top" id="CUL-gT-AAF"/>
+                                    <constraint firstAttribute="bottom" secondItem="V6F-3t-CKd" secondAttribute="bottom" id="CfC-ST-tLU"/>
+                                    <constraint firstAttribute="trailing" secondItem="V6F-3t-CKd" secondAttribute="trailing" id="aMD-Gd-eCW"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tF3-IM-xsO">
+                                <rect key="frame" x="71" y="601" width="87" height="32"/>
+                                <state key="normal" title="TAKE" image="menu-icon"/>
+                                <connections>
+                                    <action selector="libraryDidTouch:" destination="V7y-fw-VsS" eventType="touchUpInside" id="YBs-6J-h4B"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Detected text can be edited here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="htZ-fy-uAZ">
+                                <rect key="frame" x="16" y="454" width="343" height="106"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-hW-HOq">
+                                <rect key="frame" x="246" y="594" width="101" height="46"/>
+                                <state key="normal" title="TAKE" image="camera-icon"/>
+                                <connections>
+                                    <action selector="cameraDidTouch:" destination="V7y-fw-VsS" eventType="touchUpInside" id="1mL-ke-exa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="htZ-fy-uAZ" firstAttribute="leading" secondItem="qWu-8x-xU8" secondAttribute="leadingMargin" id="03q-We-D44"/>
+                            <constraint firstItem="xIg-hW-HOq" firstAttribute="top" secondItem="ugJ-9w-ndQ" secondAttribute="bottom" constant="161" id="7Ro-Gg-ScH"/>
+                            <constraint firstItem="xIg-hW-HOq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tF3-IM-xsO" secondAttribute="trailing" constant="8" symbolic="YES" id="Efs-Bh-h8T"/>
+                            <constraint firstItem="htZ-fy-uAZ" firstAttribute="centerX" secondItem="ugJ-9w-ndQ" secondAttribute="centerX" id="Jf3-JT-Zhv"/>
+                            <constraint firstItem="tF3-IM-xsO" firstAttribute="baseline" secondItem="xIg-hW-HOq" secondAttribute="baseline" id="S4T-Jv-LgM"/>
+                            <constraint firstItem="SoC-87-dEp" firstAttribute="bottom" secondItem="xIg-hW-HOq" secondAttribute="bottom" constant="27" id="SiH-KJ-nZ9"/>
+                            <constraint firstItem="tF3-IM-xsO" firstAttribute="top" secondItem="htZ-fy-uAZ" secondAttribute="bottom" constant="41" id="Uir-tT-KIu"/>
+                            <constraint firstItem="ugJ-9w-ndQ" firstAttribute="leading" secondItem="qWu-8x-xU8" secondAttribute="leading" id="ZaX-9C-Aw6"/>
+                            <constraint firstItem="tF3-IM-xsO" firstAttribute="leading" secondItem="SoC-87-dEp" secondAttribute="leading" constant="71" id="nxx-Zl-VY2"/>
+                            <constraint firstItem="ugJ-9w-ndQ" firstAttribute="top" secondItem="SoC-87-dEp" secondAttribute="top" id="odm-ht-iVP"/>
+                            <constraint firstItem="htZ-fy-uAZ" firstAttribute="top" secondItem="ugJ-9w-ndQ" secondAttribute="bottom" constant="21" id="qlW-WU-kH6"/>
+                            <constraint firstAttribute="trailing" secondItem="ugJ-9w-ndQ" secondAttribute="trailing" id="tSb-Aw-dwA"/>
+                            <constraint firstAttribute="trailing" secondItem="xIg-hW-HOq" secondAttribute="trailing" constant="28" id="ucL-hV-cd6"/>
+                            <constraint firstItem="xIg-hW-HOq" firstAttribute="top" secondItem="htZ-fy-uAZ" secondAttribute="bottom" constant="34" id="ziX-FW-WQR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SoC-87-dEp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Extractor" id="xKz-zY-NEW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="MwL-Ps-BXd">
+                            <connections>
+                                <action selector="shareDidTouch:" destination="V7y-fw-VsS" id="UQj-0B-9XO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cameraButton" destination="xIg-hW-HOq" id="1gM-Q2-Ga3"/>
+                        <outlet property="imageView" destination="V6F-3t-CKd" id="fTC-wN-kJ5"/>
+                        <outlet property="textView" destination="htZ-fy-uAZ" id="bgy-Ta-isu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OD0-Qr-mDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653.5999999999999" y="76.911544227886068"/>
         </scene>
     </scenes>
     <resources>
