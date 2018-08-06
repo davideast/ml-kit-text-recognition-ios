@@ -134,6 +134,7 @@
 				TargetAttributes = {
 					BBF4E39320D2D524009569F2 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -397,7 +398,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dac40987-e637-434d-9b81-63d373eb4caa";
 				PROVISIONING_PROFILE_SPECIFIER = "Google Development";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -419,7 +420,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dac40987-e637-434d-9b81-63d373eb4caa";
 				PROVISIONING_PROFILE_SPECIFIER = "Google Development";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
