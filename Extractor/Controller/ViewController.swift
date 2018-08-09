@@ -16,7 +16,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var cameraButton: UIButton!
   
-  var featureDetector: ScaledFeatureDetector!
+  let processor = ScaledElementProcessor()
   var frameSublayer = CALayer()
   var scannedText: String = "Detected text can be edited here." {
     didSet {
@@ -26,43 +26,31 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    featureDetector = ScaledFeatureDetector()
+    // Notifications to slide the keyboard up
+    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     
     imageView.layer.addSublayer(frameSublayer)
     
-    // Disable camera button if no camera exists
-    if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-      cameraButton.isHidden = true
-    }
-    
-    drawFeatures(in: imageView) {
-      UIView.animate(withDuration: 0.8) {
-        self.imageView.alpha = 1
-      }
-    }
+    drawFeatures(in: imageView)
   }
   
-  // MARK: Drawing
-  
-  private func drawFeatures(in imageView: UIImageView, completion: (() -> Void)? = nil) {
-    removeFeatures()
-    featureDetector.detect(in: imageView) { text, features in
-      features.forEach(self.addLayers)
-      self.scannedText = text
-      completion?()
-    }
-  }
-  
-  private func removeFeatures() {
+  private func removeFrames() {
     guard let sublayers = frameSublayer.sublayers else { return }
     for sublayer in sublayers {
       sublayer.removeFromSuperlayer()
     }
   }
   
-  private func addLayers(from feature: DetectedFeature) {
-    frameSublayer.addSublayer(feature.shapeLayer)
-    frameSublayer.addSublayer(feature.textLayer)
+  private func drawFeatures(in imageView: UIImageView, completion: (() -> Void)? = nil) {
+    removeFrames()
+    processor.process(in: imageView) { text, elements in
+      elements.forEach() { element in
+        self.frameSublayer.addSublayer(element.shapeLayer)
+      }
+      self.scannedText = text
+      completion?()
+    }
   }
   
   // MARK: Actions
@@ -78,6 +66,23 @@ class ViewController: UIViewController {
   @IBAction func shareDidTouch(_ sender: UIBarButtonItem) {
     let vc = UIActivityViewController(activityItems: [textView.text, imageView.image!], applicationActivities: [])
     present(vc, animated: true, completion: nil)
+  }
+  
+  // MARK: Keyboard slide up
+  @objc func keyboardWillShow(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      if self.view.frame.origin.y == 0{
+        self.view.frame.origin.y -= keyboardSize.height
+      }
+    }
+  }
+  
+  @objc func keyboardWillHide(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      if self.view.frame.origin.y != 0{
+        self.view.frame.origin.y += keyboardSize.height
+      }
+    }
   }
 }
 
@@ -105,3 +110,4 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
     dismiss(animated: true, completion: nil)
   }
 }
+

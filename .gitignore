@@ -50,3 +50,5 @@ playground.xcworkspace
 #
 Pods/
 
+Extractor/GoogleService-Info.plist
+
