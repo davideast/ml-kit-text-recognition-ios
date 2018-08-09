@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WKF-mi-Gvf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WKF-mi-Gvf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -104,6 +104,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9o-LR-jsg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="764" y="76.911544227886068"/>
+        </scene>
+        <!--Extractor-->
+        <scene sceneID="WCo-Bv-JI2">
+            <objects>
+                <viewController id="LZM-pA-MJO" customClass="ViewController" customModule="Extractor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O1n-XD-KM2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evh-aT-nnL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="413"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanned-text" translatesAutoresizingMaskIntoConstraints="NO" id="jWE-Pe-N9s">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="413"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jWE-Pe-N9s" firstAttribute="leading" secondItem="evh-aT-nnL" secondAttribute="leading" id="6ps-ci-gIt"/>
+                                    <constraint firstAttribute="trailing" secondItem="jWE-Pe-N9s" secondAttribute="trailing" id="Prr-uq-gaB"/>
+                                    <constraint firstAttribute="bottom" secondItem="jWE-Pe-N9s" secondAttribute="bottom" id="Sgn-Te-lVW"/>
+                                    <constraint firstItem="jWE-Pe-N9s" firstAttribute="top" secondItem="evh-aT-nnL" secondAttribute="top" id="e1H-LT-wSD"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffo-4w-RMp">
+                                <rect key="frame" x="71" y="601" width="87" height="32"/>
+                                <state key="normal" title="TAKE" image="menu-icon"/>
+                                <connections>
+                                    <action selector="libraryDidTouch:" destination="LZM-pA-MJO" eventType="touchUpInside" id="Rvs-bv-31K"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Detected text can be edited here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GRN-8a-phS">
+                                <rect key="frame" x="16" y="454" width="343" height="106"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tm5-YN-4X3">
+                                <rect key="frame" x="246" y="594" width="101" height="46"/>
+                                <state key="normal" title="TAKE" image="camera-icon"/>
+                                <connections>
+                                    <action selector="cameraDidTouch:" destination="LZM-pA-MJO" eventType="touchUpInside" id="aTa-ld-Zzj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Zt-z3-4yR" firstAttribute="bottom" secondItem="tm5-YN-4X3" secondAttribute="bottom" constant="27" id="1Om-CU-gSW"/>
+                            <constraint firstItem="evh-aT-nnL" firstAttribute="leading" secondItem="O1n-XD-KM2" secondAttribute="leading" id="6fi-qt-6fv"/>
+                            <constraint firstItem="GRN-8a-phS" firstAttribute="leading" secondItem="O1n-XD-KM2" secondAttribute="leadingMargin" id="9ex-qn-n7s"/>
+                            <constraint firstItem="tm5-YN-4X3" firstAttribute="top" secondItem="evh-aT-nnL" secondAttribute="bottom" constant="161" id="Cd2-zM-XrA"/>
+                            <constraint firstAttribute="trailing" secondItem="tm5-YN-4X3" secondAttribute="trailing" constant="28" id="GWq-Ya-bU5"/>
+                            <constraint firstItem="GRN-8a-phS" firstAttribute="top" secondItem="evh-aT-nnL" secondAttribute="bottom" constant="21" id="J6f-Pb-M3g"/>
+                            <constraint firstItem="evh-aT-nnL" firstAttribute="top" secondItem="4Zt-z3-4yR" secondAttribute="top" id="JRQ-wr-mCB"/>
+                            <constraint firstItem="Ffo-4w-RMp" firstAttribute="leading" secondItem="4Zt-z3-4yR" secondAttribute="leading" constant="71" id="Msz-P8-aAe"/>
+                            <constraint firstItem="tm5-YN-4X3" firstAttribute="top" secondItem="GRN-8a-phS" secondAttribute="bottom" constant="34" id="Pbi-wO-QKG"/>
+                            <constraint firstItem="Ffo-4w-RMp" firstAttribute="baseline" secondItem="tm5-YN-4X3" secondAttribute="baseline" id="XKp-CK-N6R"/>
+                            <constraint firstItem="Ffo-4w-RMp" firstAttribute="top" secondItem="GRN-8a-phS" secondAttribute="bottom" constant="41" id="aGs-vk-bXN"/>
+                            <constraint firstItem="tm5-YN-4X3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ffo-4w-RMp" secondAttribute="trailing" constant="8" symbolic="YES" id="nx1-S5-B23"/>
+                            <constraint firstAttribute="trailing" secondItem="evh-aT-nnL" secondAttribute="trailing" id="sFz-ev-0Vr"/>
+                            <constraint firstItem="GRN-8a-phS" firstAttribute="centerX" secondItem="evh-aT-nnL" secondAttribute="centerX" id="yve-9M-CT2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Zt-z3-4yR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Extractor" id="5Ea-oO-IlC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="pVo-oV-acw">
+                            <connections>
+                                <action selector="shareDidTouch:" destination="LZM-pA-MJO" id="lFZ-qx-wqY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cameraButton" destination="tm5-YN-4X3" id="STx-jV-1e2"/>
+                        <outlet property="imageView" destination="jWE-Pe-N9s" id="prh-gm-9Fr"/>
+                        <outlet property="textView" destination="GRN-8a-phS" id="gwW-fD-c2E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgG-j6-fmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2422" y="74"/>
         </scene>
     </scenes>
     <resources>
