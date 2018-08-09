@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBD865A7211CBE7D0044983C /* +UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD865A6211CBE7D0044983C /* +UIImage.swift */; };
 		BBF4E39820D2D524009569F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4E39720D2D524009569F2 /* AppDelegate.swift */; };
 		BBF4E39A20D2D524009569F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF4E39920D2D524009569F2 /* ViewController.swift */; };
 		BBF4E39D20D2D524009569F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF4E39B20D2D524009569F2 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		0DD91D87B2B0FFC8EC0ECF38 /* Pods-Extractor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Extractor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Extractor/Pods-Extractor.release.xcconfig"; sourceTree = "<group>"; };
 		68437A7C49DB4E7CF6AB9EF8 /* Pods_Extractor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Extractor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1117291CC947C64B52F404 /* Pods-Extractor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Extractor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Extractor/Pods-Extractor.debug.xcconfig"; sourceTree = "<group>"; };
+		BBD865A6211CBE7D0044983C /* +UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+UIImage.swift"; sourceTree = "<group>"; };
 		BBF4E39420D2D524009569F2 /* Extractor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extractor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF4E39720D2D524009569F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBF4E39920D2D524009569F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				BBF4E39E20D2D526009569F2 /* Assets.xcassets */,
 				BBF4E3A020D2D526009569F2 /* LaunchScreen.storyboard */,
 				BBF4E3A320D2D526009569F2 /* Info.plist */,
+				BBD865A6211CBE7D0044983C /* +UIImage.swift */,
 			);
 			path = Extractor;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -220,6 +224,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -237,6 +242,7 @@
 			files = (
 				BBF4E39A20D2D524009569F2 /* ViewController.swift in Sources */,
 				BBF4E39820D2D524009569F2 /* AppDelegate.swift in Sources */,
+				BBD865A7211CBE7D0044983C /* +UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,10 +391,7 @@
 				DEVELOPMENT_TEAM = EQHXZ8M8AV;
 				INFOPLIST_FILE = Extractor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.firebase.Extractor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dac40987-e637-434d-9b81-63d373eb4caa";
@@ -407,10 +410,7 @@
 				DEVELOPMENT_TEAM = EQHXZ8M8AV;
 				INFOPLIST_FILE = Extractor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.firebase.Extractor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dac40987-e637-434d-9b81-63d373eb4caa";
