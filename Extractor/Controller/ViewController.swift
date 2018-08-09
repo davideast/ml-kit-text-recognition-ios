@@ -12,12 +12,21 @@ import MobileCoreServices
 class ViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var textView: UITextView!
+  @IBOutlet weak var cameraButton: UIButton!
   
   var frameSublayer = CALayer()
-  var scannedText = ""
+  var scannedText: String = "Detected text can be edited here." {
+    didSet {
+      textView.text = scannedText
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Notifications to slide the keyboard up
+    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     
     imageView.layer.addSublayer(frameSublayer)
   }
@@ -35,6 +44,23 @@ class ViewController: UIViewController {
   @IBAction func shareDidTouch(_ sender: UIBarButtonItem) {
     let vc = UIActivityViewController(activityItems: [scannedText, imageView.image!], applicationActivities: [])
     present(vc, animated: true, completion: nil)
+  }
+  
+  // MARK: Keyboard slide up
+  @objc func keyboardWillShow(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      if self.view.frame.origin.y == 0{
+        self.view.frame.origin.y -= keyboardSize.height
+      }
+    }
+  }
+  
+  @objc func keyboardWillHide(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      if self.view.frame.origin.y != 0{
+        self.view.frame.origin.y += keyboardSize.height
+      }
+    }
   }
 }
 
