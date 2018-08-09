@@ -14,6 +14,6 @@ There's a starter project with all the ML Kit parts removed.
 
 ``` bash
 git clone https://github.com/davideast/ml-kit-text-recognition-ios.git
-git checkout starter
+git checkout starter-project
 pod install
 ```
