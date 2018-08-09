@@ -76,7 +76,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func shareDidTouch(_ sender: UIBarButtonItem) {
-    let vc = UIActivityViewController(activityItems: [scannedText, imageView.image!], applicationActivities: [])
+    let vc = UIActivityViewController(activityItems: [textView.text, imageView.image!], applicationActivities: [])
     present(vc, animated: true, completion: nil)
   }
 }
