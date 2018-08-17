@@ -25,8 +25,13 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Notifications to slide the keyboard up
-    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    
+    // Disable camera button if no camera exists
+    if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+      cameraButton.isHidden = true
+    }
     
     imageView.layer.addSublayer(frameSublayer)
   }
@@ -48,7 +53,7 @@ class ViewController: UIViewController {
   
   // MARK: Keyboard slide up
   @objc func keyboardWillShow(notification: NSNotification) {
-    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
       if self.view.frame.origin.y == 0{
         self.view.frame.origin.y -= keyboardSize.height
       }
@@ -56,7 +61,7 @@ class ViewController: UIViewController {
   }
   
   @objc func keyboardWillHide(notification: NSNotification) {
-    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
       if self.view.frame.origin.y != 0{
         self.view.frame.origin.y += keyboardSize.height
       }
@@ -68,7 +73,7 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
   
   // MARK: UIImagePickerController
   
-  private func presentImagePickerController(withSourceType sourceType: UIImagePickerControllerSourceType) {
+  private func presentImagePickerController(withSourceType sourceType: UIImagePickerController.SourceType) {
     let controller = UIImagePickerController()
     controller.delegate = self
     controller.sourceType = sourceType
@@ -78,11 +83,24 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
   
   // MARK: UIImagePickerController Delegate
   
-  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+    if let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
       imageView.contentMode = .scaleAspectFit
       imageView.image = pickedImage
     }
     dismiss(animated: true, completion: nil)
   }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

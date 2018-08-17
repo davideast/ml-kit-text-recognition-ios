@@ -2,7 +2,7 @@
 //  +UIImage.swift
 //  Extractor
 //
-//  Created by David East on 6/20/18.
+//  Created by David East on 7/27/18.
 //  Copyright © 2018 David East. All rights reserved.
 //
 
@@ -17,7 +17,7 @@ extension UIImage {
       return nil
     }
     
-    if self.imageOrientation == UIImageOrientation.up {
+    if self.imageOrientation == UIImage.Orientation.up {
       return self
     }
     
