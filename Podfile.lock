@@ -86,9 +86,9 @@ PODS:
   - Protobuf (3.6.1)
 
 DEPENDENCIES:
-  - Firebase/Core
-  - Firebase/MLVision
-  - Firebase/MLVisionTextModel
+  - Firebase/Core (= 5.5.0)
+  - Firebase/MLVision (= 5.5.0)
+  - Firebase/MLVisionTextModel (= 5.5.0)
 
 SPEC CHECKSUMS:
   Firebase: 8c957f9cb3852b519180fb378801b7eeeba4d288
@@ -107,6 +107,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 806a4f47b555d9997352e3d833d51a6aa9269cf5
+PODFILE CHECKSUM: 80cbafb0be30150510fdb182a45f898bb02a9e73
 
 COCOAPODS: 1.4.0

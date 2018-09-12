@@ -6,8 +6,8 @@ target 'Extractor' do
   use_frameworks!
   
   # Pods for Extractor
-  pod 'Firebase/Core'
-  pod 'Firebase/MLVision'
-  pod 'Firebase/MLVisionTextModel'
+  pod 'Firebase/Core' => '5.5.0'
+  pod 'Firebase/MLVision' => '5.5.0'
+  pod 'Firebase/MLVisionTextModel' => '5.5.0'
 
 end
